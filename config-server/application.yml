@@ -1,0 +1,16 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,refresh,mappings
+  endpoint:
+    prometheus:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+security:
+  allowed-clients:
+    - clientes-cuentas-microservicio
+    - retail-microservicio
+    - audit-service
