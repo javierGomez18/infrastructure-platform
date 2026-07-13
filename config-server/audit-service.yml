@@ -1,0 +1,30 @@
+server:
+  servlet:
+    context-path: /api/v1/audit
+
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      default:
+        sliding-window-size: 10
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+
+  retry:
+    instances:
+      default:
+        max-attempts: 3
+        wait-duration: 500ms

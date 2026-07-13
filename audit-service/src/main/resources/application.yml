@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: audit-service
+  config:
+    import: "configserver:"
+  cloud:
+    config:
+      uri: http://config-server:8888
+      fail-fast: true
+      profile: dev
+      label: develop
