@@ -1,12 +1,7 @@
 spring:
-  cloud:
-    bootstrap:
-      enabled: true
-    config:
-      uri: http://platform-config-server:8889
-      profile: dev
-      label: develop
   application:
     name: audit-service
+  profiles:
+    active: dev
   config:
     import: optional:configserver:http://platform-config-server:8889
