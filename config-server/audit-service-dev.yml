@@ -1,5 +1,8 @@
 spring:
   datasource:
-    url: jdbc:sqlite:/data/audit.db
+    url: jdbc:postgresql://audit-db:5432/audit
+    username: audit_user
+    password: audit_pass
+    driver-class-name: org.postgresql.Driver
 server:
   port: 8085
