@@ -3,4 +3,3 @@ spring:
     url: jdbc:sqlite:/data/audit.db
 server:
   port: 8085
-
