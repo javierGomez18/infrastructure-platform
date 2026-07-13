@@ -5,8 +5,6 @@ server:
 spring:
   application:
     name: audit-service
-  datasource:
-    driver-class-name: org.sqlite.JDBC
 
   jpa:
     hibernate:
