@@ -21,7 +21,6 @@
         <module>audit-service</module>
         <module>metrics-service</module>
         <module>shared-libraries</module>
-        <module>shared-database</module>
         <module>infrastructure-platform-config-server</module>
     </modules>
 

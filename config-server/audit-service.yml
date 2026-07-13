@@ -11,11 +11,6 @@ spring:
       ddl-auto: none
     show-sql: true
 
-  sql:
-    init:
-      mode: always
-      schema-locations: classpath:schema.sql
-
 resilience4j:
   circuitbreaker:
     instances:
