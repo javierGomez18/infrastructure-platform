@@ -1,6 +1,8 @@
 spring:
   application:
     name: audit-service
+  profiles:
+    active: dev
   config:
     import: "configserver:"
   cloud:
