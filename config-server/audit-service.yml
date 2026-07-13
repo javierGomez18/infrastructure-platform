@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /api/v1/audit
+    context-path: /api/v1
 
 spring:
   application:
