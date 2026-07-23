@@ -4,5 +4,11 @@ spring:
     username: audit_user
     password: audit_pass
     driver-class-name: org.postgresql.Driver
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: audit-service
 server:
   port: 8085
