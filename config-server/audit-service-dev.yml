@@ -4,6 +4,17 @@ spring:
     username: audit_user
     password: audit_pass
     driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        highlight_sql: true
+        generate_statistics: false
+    open-in-view: false
   security:
     oauth2:
       client:
