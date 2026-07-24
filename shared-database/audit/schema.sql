@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS audit_events (
     entity VARCHAR(255) NOT NULL,
     entity_id VARCHAR(255),
     correlation_id VARCHAR(255),
-    payload TEXT,
+    payload JSONB,
     timestamp TIMESTAMP NOT NULL
     );
 
