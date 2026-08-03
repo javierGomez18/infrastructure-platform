@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.javier.infrastructure</groupId>
+        <groupId>org.javierGomez18.infrastructure</groupId>
         <artifactId>shared-libraries</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -22,6 +22,8 @@
         <jackson.nullable.version>0.2.6</jackson.nullable.version>
         <openapi.generator.version>7.5.0</openapi.generator.version>
         <build.helper.plugin.version>3.5.0</build.helper.plugin.version>
+        <jakarta.annotation.version>2.1.1</jakarta.annotation.version>
+        <resilience4j.version>2.1.0</resilience4j.version>
     </properties>
 
     <dependencies>
@@ -65,8 +67,14 @@
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
-            <version>2.1.1</version>
+            <version>${jakarta.annotation.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-spring-boot3</artifactId>
+            <version>${resilience4j.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -93,9 +101,9 @@
                         <configuration>
                             <inputSpec>${project.basedir}/src/main/resources/openapi/audit-contract.yml</inputSpec>
                             <generatorName>spring</generatorName>
-                            <apiPackage>com.javier.infrastructure.audit.client.api</apiPackage>
-                            <modelPackage>com.javier.infrastructure.audit.client.model</modelPackage>
-                            <invokerPackage>com.javier.infrastructure.audit.client.invoker</invokerPackage>
+                            <apiPackage>org.javierGomez18.infrastructure.audit.client.api</apiPackage>
+                            <modelPackage>org.javierGomez18.infrastructure.audit.client.model</modelPackage>
+                            <invokerPackage>org.javierGomez18.infrastructure.audit.client.invoker</invokerPackage>
                             <configOptions>
                                 <library>spring-cloud</library>
                                 <useFeignClient>true</useFeignClient>

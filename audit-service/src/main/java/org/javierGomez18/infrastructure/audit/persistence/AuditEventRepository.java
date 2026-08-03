@@ -1,4 +1,4 @@
-package com.javier.infrastructure.audit.persistence;
+package org.javierGomez18.infrastructure.audit.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

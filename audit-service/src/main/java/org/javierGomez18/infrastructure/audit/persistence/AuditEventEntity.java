@@ -1,7 +1,9 @@
-package com.javier.infrastructure.audit.persistence;
+package org.javierGomez18.infrastructure.audit.persistence;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.javier.infrastructure.audit.converter.JsonNodeConverter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+import org.javierGomez18.infrastructure.audit.converter.JsonNodeConverter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,6 +30,7 @@ public class AuditEventEntity {
     private String entityId;
     private String correlationId;
 
+    @JdbcTypeCode(SqlTypes.JSON)
     @Convert(converter = JsonNodeConverter.class)
     @Column(columnDefinition = "jsonb")
     private JsonNode payload;

@@ -1,10 +1,10 @@
-package com.javier.infrastructure.audit.mapper;
+package org.javierGomez18.infrastructure.audit.mapper;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.javier.infrastructure.audit.domain.AuditEvent;
-import com.javier.infrastructure.audit.persistence.AuditEventEntity;
-import org.javier.infrastructure.audit.model.AuditEventRQ;
+import org.javierGomez18.infrastructure.audit.domain.AuditEvent;
+import org.javierGomez18.infrastructure.audit.persistence.AuditEventEntity;
+import org.javierGomez18.infrastructure.audit.model.AuditEventRQ;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

@@ -1,4 +1,4 @@
-package com.javier.infrastructure.audit.converter;
+package org.javierGomez18.infrastructure.audit.converter;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

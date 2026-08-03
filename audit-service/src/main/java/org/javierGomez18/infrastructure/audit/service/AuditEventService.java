@@ -1,9 +1,9 @@
-package com.javier.infrastructure.audit.service;
+package org.javierGomez18.infrastructure.audit.service;
 
-import com.javier.infrastructure.audit.domain.AuditEvent;
-import com.javier.infrastructure.audit.mapper.AuditEventMapper;
-import com.javier.infrastructure.audit.persistence.AuditEventEntity;
-import com.javier.infrastructure.audit.persistence.AuditEventRepository;
+import org.javierGomez18.infrastructure.audit.domain.AuditEvent;
+import org.javierGomez18.infrastructure.audit.mapper.AuditEventMapper;
+import org.javierGomez18.infrastructure.audit.persistence.AuditEventEntity;
+import org.javierGomez18.infrastructure.audit.persistence.AuditEventRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

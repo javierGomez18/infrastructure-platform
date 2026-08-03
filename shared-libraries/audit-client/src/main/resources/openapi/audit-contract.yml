@@ -57,7 +57,7 @@ components:
   schemas:
     AuditEventRQ:
       type: object
-      required: [microservice, action, entity, timestamp]
+      required: [microservice, action, entity]
       properties:
         microservice:
           type: string
@@ -72,6 +72,7 @@ components:
         payload:
           type: object
           additionalProperties: true
+          x-jackson-type: com.fasterxml.jackson.databind.JsonNode
         timestamp:
           type: string
           format: date-time

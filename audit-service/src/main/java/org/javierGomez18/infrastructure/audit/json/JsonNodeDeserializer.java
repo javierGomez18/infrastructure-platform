@@ -1,4 +1,4 @@
-package com.javier.infrastructure.audit.json;
+package org.javierGomez18.infrastructure.audit.json;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;

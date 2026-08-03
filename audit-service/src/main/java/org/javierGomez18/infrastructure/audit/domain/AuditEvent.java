@@ -1,4 +1,4 @@
-package com.javier.infrastructure.audit.domain;
+package org.javierGomez18.infrastructure.audit.domain;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AllArgsConstructor;

@@ -1,10 +1,10 @@
-package com.javier.infrastructure.audit.controller;
+package org.javierGomez18.infrastructure.audit.controller;
 
-import com.javier.infrastructure.audit.mapper.AuditEventMapper;
-import com.javier.infrastructure.audit.service.AuditEventService;
+import org.javierGomez18.infrastructure.audit.mapper.AuditEventMapper;
+import org.javierGomez18.infrastructure.audit.service.AuditEventService;
 import lombok.RequiredArgsConstructor;
-import org.javier.infrastructure.audit.api.AuditApi;
-import org.javier.infrastructure.audit.model.AuditEventRQ;
+import org.javierGomez18.infrastructure.audit.api.AuditApi;
+import org.javierGomez18.infrastructure.audit.model.AuditEventRQ;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
