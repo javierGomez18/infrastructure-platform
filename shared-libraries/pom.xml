@@ -4,16 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.javier.infrastructure</groupId>
+        <groupId>org.javierGomez18.infrastructure</groupId>
         <artifactId>infrastructure-platform</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>shared-libraries</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
+    <modules>
+        <module>audit-client</module>
+        <module>shared-filters</module>
+    </modules>
 
     <dependencies>
-        <!-- Dependencias mínimas para filtros, feign, etc. -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
