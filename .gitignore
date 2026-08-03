@@ -1,6 +1,10 @@
 # Maven
-/target/
-*/target/
+# Ignore any 'target' directory anywhere
+target/
+*.class
+*.jar
+*.yml
+*.yaml
 
 # IntelliJ IDEA
 .idea/

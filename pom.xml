@@ -12,9 +12,9 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.javier.infrastructure</groupId>
+    <groupId>org.javierGomez18.infrastructure</groupId>
     <artifactId>infrastructure-platform</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -58,7 +58,6 @@
                 <artifactId>mapstruct-processor</artifactId>
                 <version>${mapstruct.version}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
@@ -85,6 +84,26 @@
                             </path>
                         </annotationProcessorPaths>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.diffplug.spotless</groupId>
+                    <artifactId>spotless-maven-plugin</artifactId>
+                    <version>2.43.0</version>
+
+                    <configuration>
+                        <java>
+                            <googleJavaFormat/>
+                            <removeUnusedImports/>
+                        </java>
+                    </configuration>
+
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>apply</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>

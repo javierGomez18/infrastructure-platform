@@ -1,0 +1,9 @@
+FROM eclipse-temurin:21-jre
+
+WORKDIR /app
+
+COPY audit-service/target/audit-service-*.jar app.jar
+
+RUN mkdir -p /data
+
+ENTRYPOINT ["java", "-jar", "app.jar"]

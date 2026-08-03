@@ -1,3 +1,5 @@
+\c audit;
+
 CREATE TABLE IF NOT EXISTS audit_events (
     id SERIAL PRIMARY KEY,
     microservice VARCHAR(255) NOT NULL,
@@ -8,5 +10,3 @@ CREATE TABLE IF NOT EXISTS audit_events (
     payload JSONB,
     timestamp TIMESTAMP NOT NULL
     );
-
-
