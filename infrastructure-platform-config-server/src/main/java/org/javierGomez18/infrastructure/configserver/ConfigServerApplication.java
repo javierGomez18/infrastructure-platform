@@ -6,7 +6,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 
 @EnableConfigServer
 @SpringBootApplication(
-        scanBasePackages = "com.javier.infrastructure.configserver")
+        scanBasePackages = "org.javierGomez18.infrastructure.configserver")
 public class ConfigServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(ConfigServerApplication.class, args);
