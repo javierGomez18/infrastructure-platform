@@ -8,7 +8,7 @@
 
 | Pieza | Estado |
 |---|---|
-| Keycloak 24 en `docker/docker-compose.yml` (`start-dev`, base de datos PostgreSQL, hostname `localhost`, puerto `8082`) | Existe, **pero el compose no está en git** y el realm `microservices-realm` se creó a mano: **no hay export** |
+| Keycloak 24 en `docker/docker-compose.yml` (`start-dev`, base de datos PostgreSQL, hostname `localhost`, puerto `8082`) | Existe y **ya está versionado** (desde el 25 de noviembre de 2026), pero el realm `microservices-realm` se creó a mano: **no hay export** |
 | `audit-service` como *resource server* (`SecurityConfig`) | Hecho. Roles `audit.write` (POST) y `audit.read` (GET) del claim `resource_access.audit-service.roles`; `/actuator/**` abierto |
 | Conversor de roles | Corregido en `audit-service`. **El estándar de Spring no sirve** con el claim anidado de Keycloak (devuelve lista vacía): se usa uno propio. Hay tests (`SecurityConfigTest`) |
 | Cliente de auditoría (`audit-client`, Feign) | **No envía `Authorization`**: solo la cabecera `X-Client-Id`. Con la seguridad actual, toda llamada recibe 401 y el *fallback* lo oculta |
@@ -26,7 +26,7 @@
 
 ## Fase 0: higiene del repositorio (1 hora)
 
-- [ ] Quitar `*.yml` y `*.yaml` del `.gitignore` (o acotarlos con excepciones `!`) y versionar `docker/docker-compose.yml`.
+- [x] Quitar `*.yml` y `*.yaml` del `.gitignore` y versionar `docker/docker-compose.yml`. **Hecho el 25 de noviembre de 2026.**
 - [ ] Decidir qué hacer con las contraseñas de desarrollo (`admin`): variables de entorno con un `.env.example` versionado y el `.env` real ignorado.
 - [ ] Documentar el orden de arranque de Docker (las redes `external`, ver el README).
 

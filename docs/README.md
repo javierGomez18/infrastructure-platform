@@ -26,7 +26,7 @@ El trabajo se interrumpió al encontrar empleo y tener que aprender **programaci
 | `config-server` | Los ficheros de configuración que sirve el config server (`*.yml`) | Funciona |
 | `infrastructure-platform-config-server` | La aplicación Spring Cloud Config Server | Funciona |
 | `shared-database` | Scripts SQL de esquema y datos (`audit`, `clientes-cuentas`, `init`) | Funciona |
-| `docker/` | `docker-compose.yml` (config-server, audit-service, **Keycloak 24**, PostgreSQL) y los Dockerfile | Ver aviso del §4 |
+| `docker/` | `docker-compose.yml` (config-server, audit-service, **Keycloak 24**, PostgreSQL) y los Dockerfile | Versionado (ver §4) |
 
 Servicios en Docker y puertos del host: config-server `8889`, audit-service `8085` (+`5005` debug), Keycloak `8082` (→ `8080` dentro del contenedor), PostgreSQL `5432`.
 
@@ -40,7 +40,7 @@ Servicios en Docker y puertos del host: config-server `8889`, audit-service `808
 
 ## 4. Antes de nada: cuatro avisos
 
-1. **`docker/docker-compose.yml` NO está en git.** El `.gitignore` ignora todos los `*.yml` y `*.yaml` (los demás yml se versionaron a la fuerza con `git add -f`). Ese fichero contiene el servicio de Keycloak. **Si pierdes el ordenador, lo pierdes.** Primera tarea recomendada: versionarlo (ver roadmap de seguridad, fase 0).
+1. **Resuelto (25 de noviembre de 2026): `docker/docker-compose.yml` ya está en git.** Antes el `.gitignore` ignoraba todos los `*.yml` y `*.yaml`, y ese fichero (que contiene el servicio de Keycloak) solo existía en un ordenador. Ya no hay reglas de ese tipo. Si algún día añades un `.env` con secretos, ignóralo explícitamente.
 2. **Contraseñas de desarrollo (`admin`)** en los yml del config server y en el compose. No son secretos de producción, pero no se deben reutilizar. Hay un plan para gestionarlas (ver [`hallazgos-y-decisiones.md`](hallazgos-y-decisiones.md)).
 3. **Orden de arranque de Docker.** Este compose y el de `clientes-cuentas-microservicio` se declaran **mutuamente la red del otro como `external`** (`docker_backend-net` y `docker_platform-net`). Si arrancas uno sin que exista la red del otro, falla. Crea las redes primero o arranca en dos pasadas.
 4. **El `README.md` de la raíz describe la visión, no el estado.** Dice, por ejemplo, que la auditoría usa SQLite (usa PostgreSQL) y muestra insignias de "observability: enabled" y "status: active". Fíate de esta carpeta `docs/`, no de él.
@@ -58,7 +58,7 @@ mvn clean package
 
 ## 6. Orden de trabajo recomendado
 
-1. **Higiene** (1 h): versionar el `docker-compose.yml` y arreglar el `.gitignore`. → fase 0 de seguridad.
+1. ~~**Higiene**: versionar el `docker-compose.yml` y arreglar el `.gitignore`~~ **Hecho el 25 de noviembre de 2026.** Queda el resto de la fase 0 de seguridad (contraseñas de desarrollo y orden de arranque).
 2. **Keycloak reproducible** (realm exportado + clientes + roles). → fases 1 de seguridad.
 3. **Token en el cliente de auditoría** (`client_credentials`). → fase 3 de seguridad. Con esto la auditoría vuelve a funcionar de extremo a extremo.
 4. **Métricas**: activar la librería, definir el estándar y desplegar Prometheus y Grafana. → roadmap de métricas.

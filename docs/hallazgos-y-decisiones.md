@@ -41,7 +41,7 @@ Aquí está lo que se **descubrió** revisando el proyecto (25 de noviembre de 2
 - Una **librería no debe llevar `application.yml`** ni definir beans que Boot ya autoconfigura.
 - **`Map.of(...)` lanza `NullPointerException` con valores `null`**: en un parámetro opcional usa `HashMap`. (Se encontró en `clientes-cuentas`, en la auditoría de `GET /movimientos`.)
 - **`@EnabledIf` no se hereda** en JUnit de una clase base abstracta a sus subclases; hay que usar una extensión registrada con `@ExtendWith`.
-- El **`.gitignore` con `*.yml`** oculta ficheros nuevos y es la razón de que el compose no esté en git.
+- El **`.gitignore` con `*.yml`** ocultaba ficheros nuevos y fue la razón de que el compose no estuviera en git. **Corregido en este repositorio (25 de noviembre de 2026); sigue igual en `clientes-cuentas-microservicio`**.
 - Con **Windows y rutas largas** (`core.longpaths`) puede fallar `git add` en proyectos con paquetes Java muy anidados.
 
 ## E. Comandos útiles

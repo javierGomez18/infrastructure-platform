@@ -1,0 +1,91 @@
+version: "3.9"
+
+services:
+
+  platform-config-server:
+    container_name: platform-config-server
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile.config
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+    ports:
+      - "8889:8889"
+    networks:
+      - platform-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://platform-config-server:8889/audit-service-dev.yml"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+  audit-service:
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile.audit
+    container_name: audit-service
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_CLOUD_CONFIG_URI: "http://platform-config-server:8889"
+      SPRING_CONFIG_IMPORT: "optional:configserver:http://platform-config-server:8889"
+      JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+    depends_on:
+      platform-config-server:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    networks:
+      - platform-net
+      - docker_backend-net
+    ports:
+      - "8085:8085"
+      - "5005:5005"
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0
+    container_name: keycloak
+    command: start-dev
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: admin
+      KC_DB_PASSWORD: admin
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HOSTNAME: localhost
+    ports:
+      - "8082:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - platform-net
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: keycloak
+    volumes:
+      - postgre_data:/var/lib/postgresql/data
+      - ../shared-database/init/init.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - ../shared-database/audit/schema.sql:/docker-entrypoint-initdb.d/02-audit.sql
+      - ../shared-database/clientes-cuentas/01-schema.sql:/docker-entrypoint-initdb.d/03-clientes-schema.sql
+      - ../shared-database/clientes-cuentas/02-data.sql:/docker-entrypoint-initdb.d/04-clientes-data.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - platform-net
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U admin" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgre_data:
+
+networks:
+  platform-net:
+    driver: bridge
+  docker_backend-net:
+    external: true
