@@ -64,6 +64,8 @@ mvn clean package
 4. **Métricas**: activar la librería, definir el estándar y desplegar Prometheus y Grafana. → roadmap de métricas.
 5. **Reutilización**: convertir seguridad y métricas en *starters* para futuros proyectos.
 
+**Iteración 2 (pendiente de decidir):** integrar los secretos con CyberArk. Ver [`roadmap-iteracion-2-cyberark.md`](roadmap-iteracion-2-cyberark.md); se evalúa su viabilidad al terminar los pasos 1 a 5.
+
 El orden importa: las métricas son independientes de Keycloak, pero **hasta el paso 3 la auditoría está rota en silencio** en cuanto se usa la seguridad nueva (cada llamada recibe 401 y el *fallback* la oculta).
 
 ## 7. Índice de esta carpeta
@@ -73,5 +75,6 @@ El orden importa: las métricas son independientes de Keycloak, pero **hasta el 
 | [`roadmap-seguridad-keycloak.md`](roadmap-seguridad-keycloak.md) | Plan paso a paso de Keycloak + OAuth2 `client_credentials` |
 | [`roadmap-metricas-prometheus.md`](roadmap-metricas-prometheus.md) | Plan paso a paso de métricas estandarizadas con Prometheus y Grafana |
 | [`hallazgos-y-decisiones.md`](hallazgos-y-decisiones.md) | Qué se comprobó (y cómo), decisiones abiertas y trampas ya encontradas |
+| [`roadmap-iteracion-2-cyberark.md`](roadmap-iteracion-2-cyberark.md) | **Propuesta** de iteración 2: sacar los secretos a CyberArk. Se evalúa su viabilidad al terminar la iteración 1 |
 
 La parte del lado cliente (gateway, `clientes-cuentas-microservicio`) está en `docs/` del repositorio `clientes-cuentas-microservicio`.

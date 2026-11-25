@@ -22,7 +22,7 @@
 | Un *client* por servicio | Nombre = nombre del servicio (`audit-service`, `clientes-cuentas-microservicio`, `gateway-server`) |
 | Roles | Por *client*, formato `recurso.accion` (`audit.read`, `audit.write`, `cuentas.read`, `cuentas.write`…). Revisar `clientes.read`/`cuentas.read` que hoy se exigen también para escribir |
 | Quién llama a quién | Cada servicio que **llama** a otro tiene su propio *client* confidencial con **Service Accounts** activado, y a ese *service account* se le asignan los roles del servicio destino |
-| Secretos de los *clients* | **Nunca en git ni en el yml.** Variables de entorno o un gestor de secretos (CyberArk, Vault…). Ver `hallazgos-y-decisiones.md` |
+| Secretos de los *clients* | **Nunca en git ni en el yml.** Variables de entorno o un gestor de secretos (CyberArk, Vault…). Ver `hallazgos-y-decisiones.md`  Plan en `roadmap-iteracion-2-cyberark.md`. |
 
 ## Fase 0: higiene del repositorio (1 hora)
 

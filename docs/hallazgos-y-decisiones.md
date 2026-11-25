@@ -32,7 +32,7 @@ Aquí está lo que se **descubrió** revisando el proyecto (25 de noviembre de 2
 
 1. **¿`X-Client-Id` se mantiene o se elimina cuando haya OAuth2?** Con `client_credentials`, la identidad del llamante ya va en el token (`azp`/`clientId`). Mantener ambos duplica la fuente de verdad. Propuesta: eliminarla y usar el token.
 2. **Estrategia de hostname de Keycloak** (B1). Es la decisión que más problemas evita: elegir una y documentarla.
-3. **Gestión de secretos de los *clients*.** Opciones: variables de entorno inyectadas, un gestor de secretos (en el trabajo se usa CyberArk) o ficheros externos. En cualquier caso **no en el yml**.
+3. **Gestión de secretos de los *clients*.** Opciones: variables de entorno inyectadas, un gestor de secretos (en el trabajo se usa CyberArk) o ficheros externos. En cualquier caso **no en el yml**. Ver `roadmap-iteracion-2-cyberark.md`.
 4. **¿Starters reutilizables?** Hoy los módulos se consumen como dependencias del reactor o del `.m2`. Para proyectos futuros hace falta un mecanismo de publicación.
 5. **Dónde viven las etiquetas comunes de las métricas** (config server o librería).
 
