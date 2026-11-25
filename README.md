@@ -1,5 +1,7 @@
 # 📘 Infrastructure Platform
 
+> 📌 **¿Retomas el proyecto? Empieza por [`docs/README.md`](docs/README.md)**: estado real, evolutivos a medias (Keycloak y métricas) y próximos pasos. Este README describe la visión, no el estado: por ejemplo, el servicio de auditoría usa PostgreSQL (no SQLite) y los evolutivos de seguridad y métricas están a medias.
+
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 ![Architecture](https://img.shields.io/badge/architecture-microservices-blue)
 ![Observability](https://img.shields.io/badge/observability-enabled-orange)
