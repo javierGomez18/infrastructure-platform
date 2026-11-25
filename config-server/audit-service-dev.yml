@@ -21,5 +21,16 @@ spring:
         registration:
           keycloak:
             client-id: audit-service
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8082/realms/microservices-realm
 server:
   port: 8085
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+    initial-instance-info-replication-interval-seconds: 1000
+    registry-fetch-interval-seconds: 90
